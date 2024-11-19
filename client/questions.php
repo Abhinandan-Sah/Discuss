@@ -1,9 +1,28 @@
 <div class="container">
-    <h1 class="heading center">Questions</h1>
+    
+    <div class="row">
     <div class="col-8"> 
+    <h1 class="heading center">Questions</h1>
+
     <?php
     include("./common/db.php");
-    $query= "select * from questions";
+    if(isset($_GET["c-id"]) && $_GET["c-id"] !== 'all'){
+        // $cid=$_GET['c-id'];
+        $cid = intval($_GET['c-id']);
+        $query= "select * from questions where category_id= $cid";
+    }
+    else if(isset($_GET["u-id"])){
+        $uid=$_GET['u-id'];
+        $query= "select * from questions where user_id= $uid";
+    }
+    else if(isset($_GET["latest"])){
+        $query= "select * from questions order by id desc";
+    }
+    else{
+        $query= "select * from questions";
+    }
+    $result=$conn->query($query);
+    
     $result=$conn->query($query);
     foreach($result as $row){
         $title= $row['title'];
@@ -14,5 +33,11 @@
 
     }
     ?>
+        </div>
+
+    <div class="col-4">
+        <?php include('categorylist.php'); ?>
+
+    </div>
     </div>
 </div>

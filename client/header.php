@@ -10,10 +10,10 @@ session_start();
     <div class="collapse navbar-collapse d-flex align-items-center" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active h5" aria-current="page" href="#">Home</a>
+          <a class="nav-link active h5" aria-current="page" href="/discuss/?c-id=all">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link h5" href="?questions=true">Latest Questions</a>
+          <a class="nav-link h5" href="?latest=true">Latest Questions</a>
         </li>
         <li class="nav-item">
           <a class="nav-link h5" href="?category=true">Category</a>
@@ -24,6 +24,9 @@ session_start();
         if(isset($_SESSION['user']['username'])){ ?>
         <li class="nav-item">
           <a class="nav-link h5" href="?ask=true" tabindex="-1" aria-disabled="true">Ask a Questions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link h5" href="?u-id=<?php echo $_SESSION['user']['user_id']?>" >My Questions</a>
         </li>
         <li class="nav-item">
           <a class="nav-link h5" href="./server/requests.php?logout=true" tabindex="-1" aria-disabled="true">Logout</a>
