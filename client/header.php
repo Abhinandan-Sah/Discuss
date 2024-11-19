@@ -13,7 +13,7 @@ session_start();
           <a class="nav-link active h5" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link h5" href="#">Latest Questions</a>
+          <a class="nav-link h5" href="?questions=true">Latest Questions</a>
         </li>
         <li class="nav-item">
           <a class="nav-link h5" href="?category=true">Category</a>

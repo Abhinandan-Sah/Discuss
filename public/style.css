@@ -8,3 +8,21 @@ a{
 .center{
     text-align: center;
 }
+
+.questions{
+    padding: 15px;
+    margin: 10px;
+    border: 2px solid black;
+    
+}
+.questions a{
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.question-title{
+    font-size: 22px;
+    /* text-decoration: none; */
+    font-weight: bold;
+    color: #1c7194 !important;
+}
