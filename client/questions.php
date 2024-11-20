@@ -18,6 +18,9 @@
     else if(isset($_GET["latest"])){
         $query= "select * from questions order by id desc";
     }
+    else if(isset($_GET["search"])){
+        $query= "select * from questions where `title`  LIKE '%$search%' ";
+    }
     else{
         $query= "select * from questions";
     }
@@ -27,10 +30,12 @@
     foreach($result as $row){
         $title= $row['title'];
         $id= $row['id'];
-        echo "<div class='row' style='padding: 15px; margin: 10px 0; border: 2px solid #333; border-radius: 5px; background-color: #fafafa; transition: background-color 0.3s;'>
-        <a href='?q-id=$id' style='font-size: 24px; text-decoration: none; color: #007BFF; font-weight: 400;'>$title</a>
-        </div>";
-
+        echo "<div style=' width: full; padding: 15px; display: flex; justify-content: space-between; margin: 10px 0; border: 2px solid #333; border-radius: 5px; background-color: #fafafa; transition: background-color 0.3s; max-width: 800px; width: 100%; align-items: center;'>";
+echo "<a href='?q-id=$id' class='my-question' style='font-size: 24px; text-decoration: none; color: #007BFF; font-weight: 400; margin-right: 15px;'>$title</a>";
+if (isset($uid)) {
+    echo " <a href='./server/requests.php?delete=$id' style='font-size: 20px; background-color: #FF7F7F;  color: red; margin-left: 10px; text-decoration: none; padding: 5px 10px; border-radius: 3px; transition: background-color 0.3s;' onmouseover='this.style.backgroundColor=\"#FF474D\"' onmouseout='this.style.backgroundColor=\"#FF474D\"'>Delete</a>";
+}
+echo "</div>";
     }
     ?>
         </div>

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="./public/favicon-logo.png">
+    <title>Discuss</title>
     <?php include('./client/commonFiles.php') ?>
     <link href="./public/style.css" rel="stylesheet">
 </head>
@@ -35,6 +36,10 @@
             include('./client/questions.php');  
         }
         else if(isset($_GET["latest"])){  
+            include('./client/questions.php');  
+        }
+        else if(isset($_GET["search"])){  
+            $search= $_GET["search"];
             include('./client/questions.php');  
         }
         else{
